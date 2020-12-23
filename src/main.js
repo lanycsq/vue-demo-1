@@ -3,8 +3,9 @@
 
 // Vue.config.productionTip = false
 
-import Demo from './Demo.vue'
 const Vue = window.Vue;
+import Demo from './Demo.vue'
+
 Vue.config.productionTip = false
 
 // const vm = new Vue({
@@ -13,10 +14,10 @@ Vue.config.productionTip = false
 // })
 // console.log(vm.$data);
 
-//组件（全局）
-Vue.component("Demo2", {
-  template: `<div>demo2</div>`
-})
+// //组件（全局）
+// Vue.component("Demo2", {
+//   template: `<div>demo2</div>`
+// })
 
 //引入组件的三种方式
 //1、（优先使用）
@@ -35,42 +36,55 @@ Vue.component("Demo2", {
 // }}
 
 
+// new Vue({
+
+//   template: `<div class="red">
+//   {{n}}
+//   <button @click="add">+1</button>
+//  </div>`,
+//   data: {
+//     n: 0,
+//     array: [1, 3, 4, 5, 6, 8, 12]
+//   },
+//   created() {
+//     console.log("出现在内存中，没用出现在页面中")
+//   },
+//   mounted() {
+//     console.log("出现在页面中")
+//   },
+//   updated() {
+//     console.log("更新了")
+//   },
+//   destroyed() {
+
+//   },
+//   methods: {
+//     add() {
+//       this.n += 1;
+//     },
+
+//   }
+// }).$mount("#app")
 new Vue({
   components: {
-    Demo, //等价于 Demo：Demo
-    Lan: {
-      template: `<div>Lan</div>`
-    }
+    Demo
   },
-  template: `<div class="red">
-  {{n}}
-  <button @click="add">+1</button>
-  <hr>
-  <Demo/>
-  <hr>
-  <Demo2/>
-  <hr>
-  <Lan/>
-  <hr>
-  {{filterArray()}}
- </div>`,
   data: {
-    n: 0,
-    array: [1, 3, 4, 5, 6, 8, 12]
+    visible: true
   },
+  template: `
+  <idv>
+  <button @click="toggle">toggle</button>
+  <hr>
+  <Demo v-if="visible==true"></Demo>
+  </idv>
+  `,
   methods: {
-    add() {
-      this.n += 1;
-    },
-    filterArray() {
-      console.log("zhix li");
-      return this.array.filter(i => i % 2 === 0)
+    toggle() {
+      this.visible = !this.visible
     }
   }
-}).$mount("#app")
-// new Vue({
-//   render: h => h(App),
-// }).$mount('#app')
+}).$mount('#app')
 // console.log(window.Vue);
 
 // const vm = new Vue({
