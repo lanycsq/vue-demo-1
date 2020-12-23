@@ -1,6 +1,6 @@
 <template>
   <div class="red">
-    {{ n }}
+    <div>{{ n }}</div>
     <button @click="add">+1</button>
   </div>
 </template>
