@@ -8,47 +8,6 @@ const Vue = window.Vue;
 
 Vue.config.productionTip = false
 
-const obj1 = {
-  firstName: 'chen',
-  lastName: 'shanqiong',
-  name() {
-    return this.firstName + this.lastName
-  }
-}
-console.log("姓名:" + obj1.name())
-//这里name 需要加括号才可以调用
-//那么我就是想要不加括号，是否能打印出姓名
-
-const obj2 = {
-  firstName: 'chen',
-  lastName: 'shanqiong',
-  get name() {
-    return this.firstName + this.lastName
-  }
-}
-console.log("姓名:" + obj2.name)
-//在方法名之前加一个get 这样不加括号也可以调用  
-// getter就是这样用  在函数名前面加get 
-
-//getter和setter是ES6的新特性
-const obj3 = {
-  firstName: 'chen',
-  lastName: 'shanqiong',
-  get name() {
-    return this.firstName + this.lastName
-  },
-  set name(name) {
-    this.firstName = name[0],
-      this.lastName = name.substring(1)
-  },
-  age: 18
-}
-console.log(obj3);
-
-obj3.name = '陈善琼'; //相当于触发了setter函数
-console.log("obj3的姓名：" + obj3.name)
-
-
 
 const myData = {
   n: 0
