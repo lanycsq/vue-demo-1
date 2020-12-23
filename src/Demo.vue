@@ -2,6 +2,9 @@
   <div class="red">
     <div>{{ n }}</div>
     <button @click="add">+1</button>
+    <Demo2 />
+    <Demo2 />
+    <Demo2 />
   </div>
 </template>
 <script>
