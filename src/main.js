@@ -44,10 +44,18 @@ const obj3 = {
   age: 18
 }
 console.log(obj3);
+let _xxx = 0;
 
 obj3.name = '陈善琼'; //相当于触发了setter函数
 console.log("obj3的姓名：" + obj3.name)
-
+Object.defineProperty(obj3, 'xxx', {
+  get() {
+    return _xxx;
+  },
+  set(value) {
+    _xxx = value;
+  }
+})
 
 
 const myData = {
@@ -60,7 +68,9 @@ new Vue({
   <div>
   {{n}}
   </div>
-  `
+  `,
+
+
 }).$mount("#app");
 
 setTimeout(() => {
